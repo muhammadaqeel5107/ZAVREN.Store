@@ -1,0 +1,2 @@
+import {json,fail,authFail} from '../../../_shared.js';
+export async function onRequestGet({request,env}){const a=await authFail(request,env);if(a)return a;try{const {results=[]}=await env.DB.prepare('SELECT * FROM orders ORDER BY created_at DESC LIMIT 500').all();return json({orders:results.map(o=>({id:o.id,customer:JSON.parse(o.customer),items:JSON.parse(o.items),total:o.total,status:o.status,createdAt:o.created_at}))})}catch{return fail('Could not load orders.',500)}}

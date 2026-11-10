@@ -1,0 +1,13 @@
+# Optional local Wrangler config. Replace database_id with your real D1 database ID.
+name = "zavren-store"
+pages_build_output_dir = "."
+compatibility_date = "2026-11-05"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "zavren-store-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "zavren-store-images"
